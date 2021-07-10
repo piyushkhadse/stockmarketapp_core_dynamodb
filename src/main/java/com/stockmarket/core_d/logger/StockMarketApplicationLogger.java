@@ -1,25 +1,16 @@
 package com.stockmarket.core_d.logger;
 
-import com.stockmarket.core_d.events.publisher.KafkaPublisher;
 import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.event.Level;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Properties;
 
 @NoArgsConstructor
 public class StockMarketApplicationLogger implements StockMarketLogger {
-
-    @Value("${log.messaging.producer.topic}")
-    protected String topic;
-    @Autowired
-    protected KafkaPublisher publisher;
     protected Logger logger;
     protected Level level;
-    protected Properties properties;
 
     public <T> StockMarketApplicationLogger(Class<T> clazz) {
         this.logger = LoggerFactory.getLogger(clazz);
