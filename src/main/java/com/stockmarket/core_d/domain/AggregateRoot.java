@@ -9,9 +9,9 @@ import java.util.List;
 
 public abstract class AggregateRoot {
     @Transient
-    private List<DomainEvent> events = new ArrayList();
+    private List<DomainEvent> events = new ArrayList<>();
 
-    public AggregateRoot() {
+    protected AggregateRoot() {
 
     }
 

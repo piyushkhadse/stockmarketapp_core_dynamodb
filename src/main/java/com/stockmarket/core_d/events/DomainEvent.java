@@ -28,7 +28,7 @@ public abstract class DomainEvent implements Serializable {
     @DynamoDBAttribute
     private String generatedDate;
 
-    public DomainEvent(String aggregateId, String aggregateType, String name, Integer aggregateVersion) {
+    protected DomainEvent(String aggregateId, String aggregateType, String name, Integer aggregateVersion) {
         this.eventId = UUID.randomUUID().toString();
         this.aggregateId = aggregateId;
         this.aggregateType = aggregateType;
@@ -37,7 +37,7 @@ public abstract class DomainEvent implements Serializable {
         this.generatedDate = Instant.now().toString();
     }
 
-    public DomainEvent(String aggregateId, String aggregateType, String name) {
+    protected DomainEvent(String aggregateId, String aggregateType, String name) {
         this.eventId = UUID.randomUUID().toString();
         this.aggregateId = aggregateId;
         this.aggregateType = aggregateType;

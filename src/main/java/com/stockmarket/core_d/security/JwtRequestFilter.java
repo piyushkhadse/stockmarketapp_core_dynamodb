@@ -51,7 +51,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             Claims claims = jwtTokenUtil.getAllClaimsFromToken(jwtToken);
             String userRole = claims.get("role").toString().replace(ROLE_PREFIX,"");
             UserDetails userDetails = new AppUser(new UserDto(username,null,userRole));
-            if (jwtTokenUtil.validateToken(jwtToken, userDetails)) {
+            if (Boolean.TRUE.equals(jwtTokenUtil.validateToken(jwtToken, userDetails))) {
 
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
                         userDetails, null, userDetails.getAuthorities());

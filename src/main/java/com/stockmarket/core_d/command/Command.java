@@ -3,6 +3,7 @@ package com.stockmarket.core_d.command;
 import com.stockmarket.core_d.domain.Error;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Transient;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,9 +17,10 @@ public abstract class Command implements Serializable {
     private String aggregateId;
     private String aggregateType;
     private List<Error> errors;
+    @Transient
     private Map<String, Object> referenceData;
 
-    public Command(String aggregateId, String aggregateType) {
+    protected Command(String aggregateId, String aggregateType) {
         this.aggregateId = aggregateId;
         this.aggregateType = aggregateType;
         this.errors = new ArrayList<>();

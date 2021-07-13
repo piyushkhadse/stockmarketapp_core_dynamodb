@@ -61,7 +61,6 @@ public class KafkaPublisher {
             producer.send(topic, message);
             return true;
         } catch(Exception e) {
-            System.out.println("error:"+e);
             return false;
         }
     }
@@ -95,7 +94,6 @@ public class KafkaPublisher {
             producer.send(topic, message);
             return true;
         } catch(Exception e) {
-            System.out.println("error:"+e);
             return false;
         }
     }
